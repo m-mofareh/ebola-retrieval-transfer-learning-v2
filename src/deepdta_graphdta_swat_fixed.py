@@ -2,20 +2,6 @@
 Two-Stage SWAT Transfer Learning for Ebola pAffinity Prediction
 Models: DeepDTA (CNN-based) and GraphDTA (GCN-based)
 
-CHANGES vs. original:
-  1. load_ebola_data() replaces load_ebola_ic50()
-     - Reads ebola_dti_ready.csv (IC50+EC50+Ki+Kd pooled as pAffinity)
-     - All 590 deduplicated rows used
-  2. load_bindingdb() updated to load IC50+Ki+Kd as pAffinity
-     - Consistent scale with Ebola dataset
-     - Reduces domain gap between BindingDB and Ebola distributions
-  3. Same scaffold split as ebola_ml_baselines.py and
-     single_stage_deepdta_graphdta.py — identical seed formula
-  4. --seed exposed for shell script sweeps
-  5. Stage 2 saves per-seed metrics CSV for aggregation
-  6. FIX: Stage 12 propagates retrieval_type/hybrid_alpha to child processes
-  7. FIX: deterministic RNG/CUDA settings and explicitly seeded DataLoaders
-
 Usage:
   # Auto Stage 1 + 2 (recommended)
   python deepdta_graphdta_protien4.py \
