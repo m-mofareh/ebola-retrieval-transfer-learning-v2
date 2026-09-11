@@ -4,12 +4,6 @@ Same architectures and scaffold split as the SWAT retrieval pipeline.
 Used as an ablation baseline — shows what the models achieve without
 transfer learning.
 
-CHANGES vs. original:
-  1. load_ebola_data() replaces load_ebola_ic50()
-     - Reads ebola_dti_ready.csv (IC50+EC50+Ki+Kd as pAffinity)
-     - All 590 deduplicated rows used (was IC50-only before)
-  2. --seed exposed as CLI argument so shell script can sweep seeds
-  3. Saves per-seed metrics to CSV for easy aggregation across seeds
 
 Usage:
   # Single model, single seed
